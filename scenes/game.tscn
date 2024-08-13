@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://wrpxrr1s6d6j"]
+
+[ext_resource type="PackedScene" uid="uid://cal1cekwen2yt" path="res://scenes/mainCharacter.tscn" id="1_cgmrm"]
+[ext_resource type="PackedScene" uid="uid://drp2tesusj1p3" path="res://scenes/floor.tscn" id="2_o0xfc"]
+
+[node name="GameParent" type="Node2D"]
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_cgmrm")]
+
+[node name="Floor" parent="." instance=ExtResource("2_o0xfc")]

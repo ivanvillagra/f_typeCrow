@@ -528,4 +528,4 @@ position = Vector2(113, 448)
 scale = Vector2(0.96875, 0.9375)
 sprite_frames = SubResource("SpriteFrames_1tn37")
 animation = &"attack3"
-frame_progress = 0.862282
+frame_progress = 0.223782

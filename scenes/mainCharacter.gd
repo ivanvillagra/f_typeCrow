@@ -9,20 +9,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = $AnimatedSprite2D
 
 func _physics_process(delta):
+	_idle()
 	
-	if velocity.length() == 0 && is_on_floor():
-		animation.animation_finished
-		animation.play("idle2")
-	# Add the gravity.
-	if not is_on_floor():
-		animation.animation_finished
-		animation.play("jump")
-		velocity.y += gravity * delta
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		doubleJump = true
-
+	_jump(delta)
+	
 	_doubleJump()
 	
 	_downDash()
@@ -58,3 +48,19 @@ func _walk():
 			animation.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+func _idle():
+	if velocity.length() == 0 && is_on_floor():
+		animation.animation_finished
+		animation.play("idle2")
+		
+func _jump(delta):
+		# Add the gravity.
+	if not is_on_floor():
+		animation.animation_finished
+		animation.play("jump")
+		velocity.y += gravity * delta
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		doubleJump = true

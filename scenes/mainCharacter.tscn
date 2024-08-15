@@ -1,6 +1,6 @@
 [gd_scene load_steps=79 format=3 uid="uid://cal1cekwen2yt"]
 
-[ext_resource type="Script" path="res://scenes/mainCharacter.gd" id="1_vciqe"]
+[ext_resource type="Script" path="res://scripts/mainCharacter.gd" id="1_vciqe"]
 [ext_resource type="Texture2D" uid="uid://byig84k5jeebm" path="res://sprites/Karasu_tengu/Walk.png" id="3_7o2gd"]
 [ext_resource type="Texture2D" uid="uid://cukl38n4b0o5q" path="res://sprites/Karasu_tengu/Idle.png" id="3_px887"]
 [ext_resource type="Texture2D" uid="uid://dlicnf21hl40c" path="res://sprites/Karasu_tengu/Jump.png" id="3_v3ugm"]
@@ -301,7 +301,7 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_2e7wu")
 }, {
 "duration": 1.0,
@@ -332,7 +332,7 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_yxoxt")
 }],
 "loop": true,
@@ -541,4 +541,4 @@ debug_color = Color(0.984622, 0.933391, 0.938079, 0.42)
 position = Vector2(112, 437)
 scale = Vector2(0.96875, 1.09375)
 sprite_frames = SubResource("SpriteFrames_1tn37")
-animation = &"attack4"
+animation = &"attack2"

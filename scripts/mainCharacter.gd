@@ -75,7 +75,7 @@ func _attack():
 
 func air_attack():
 	attacking = true
-	animation.play("attack2")
+	animation.play("attack3")
 		
 func _on_animation_finished():
 	attacking = false

@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -500.0
 var double_jump_enabled: bool = true
 var attacking: bool = false
 var life = 100
+var attacks_damage = 10
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = $AnimatedSprite2D

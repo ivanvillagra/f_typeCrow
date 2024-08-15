@@ -13,7 +13,7 @@ func _ready():
 
 func _physics_process(delta):
 	_handle_gravity(delta)
-	_handle_movement(delta)
+	_handle_movement()
 	move_and_slide()
 	
 func _handle_gravity(delta):
@@ -22,12 +22,12 @@ func _handle_gravity(delta):
 		if animation.get_animation() != "jump" and animation.get_animation() != "fall":
 			animation.play("jump")
 
-func _handle_movement(delta):
+func _handle_movement():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and !attacking:
 		_jump()
 	elif Input.is_action_just_pressed("ui_accept") and !is_on_floor() and double_jump_enabled:
 		_double_jump()
-	elif Input.is_action_just_pressed("ui_down") and !is_on_floor():
+	elif Input.is_action_just_pressed("ui_down") and !is_on_floor() and !double_jump_enabled:
 		_down_dash()
 	elif Input.is_action_just_pressed("ui_down") and is_on_floor():
 		_attack() 
@@ -59,7 +59,9 @@ func _double_jump():
 		animation.play("jump")
 
 func _down_dash():
-	velocity.y = -(JUMP_VELOCITY * 2.25)
+	attacking = true
+	velocity.y = -(JUMP_VELOCITY * 1.75)
+	animation.play("attack4")
 
 func _attack():
 	attacking = true
@@ -67,6 +69,6 @@ func _attack():
 	animation.play("attack1")
 		
 func _on_animation_finished():
-	if  is_on_floor():
-			attacking = false
+	if is_on_floor():
+		attacking = false
 	
